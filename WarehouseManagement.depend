@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1673084281 source:e:\c program\first_class\warehousemanagement\linebyline.c
+	<stdio.h>
+	<stdlib.h>
+
+1673253305 source:e:\c program\first_class\warehousemanagement\login.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<conio.h>
+
+1673259335 source:e:\c program\first_class\warehousemanagement\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1673248359 source:e:\c program\first_class\warehousemanagement\signup.c
+	<stdio.h>
+	<string.h>
+
+1673259305 source:e:\c program\first_class\warehousemanagement\loginpage.c
+	<stdio.h>
+	<stdlib.h>
+
