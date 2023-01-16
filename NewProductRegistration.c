@@ -22,6 +22,7 @@ void NewProductRegistration()
     }
     else
     {
+        fflush(stdin);
         printf("====>Welcome to the new product registration page<====\n\n");
         printf("We need some information about the new product, please enter this information....\n\n");
         printf("Name of the product : ");

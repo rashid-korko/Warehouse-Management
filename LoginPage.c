@@ -12,9 +12,6 @@ void LoginPage()
     {
       case 1:
         SignUp();
-        LogIn();
-        MainMenu();
-        break;
       case 2:
         LogIn();
         MainMenu();

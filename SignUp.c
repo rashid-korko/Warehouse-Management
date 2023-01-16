@@ -20,7 +20,7 @@ void SignUp()
     struct AccountData user;
     int i , length , n = 1 , tempint , choice;
     char temp , robot_check;
-    AccountData = fopen("AccountData.txt" , "ab");
+    AccountData = fopen("AccountData.txt" , "a");
     if (AccountData == NULL)
     {
         printf("ERROR , File could not be opened");

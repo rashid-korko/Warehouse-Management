@@ -31,10 +31,16 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="AccountSettings.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="LineByLine.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="LogIn.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="LogOut.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="LoginPage.c">

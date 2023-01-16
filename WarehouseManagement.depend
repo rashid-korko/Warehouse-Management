@@ -3,7 +3,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1673253305 source:e:\c program\first_class\warehousemanagement\login.c
+1673852750 source:e:\c program\first_class\warehousemanagement\login.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
@@ -13,11 +13,35 @@
 	<stdio.h>
 	<stdlib.h>
 
-1673248359 source:e:\c program\first_class\warehousemanagement\signup.c
+1673852506 source:e:\c program\first_class\warehousemanagement\signup.c
 	<stdio.h>
 	<string.h>
 
-1673259305 source:e:\c program\first_class\warehousemanagement\loginpage.c
+1673266896 source:e:\c program\first_class\warehousemanagement\loginpage.c
 	<stdio.h>
 	<stdlib.h>
+
+1673770759 source:e:\c program\first_class\warehousemanagement\newproductregistration.c
+	<stdio.h>
+	<string.h>
+
+1673853909 source:e:\c program\first_class\warehousemanagement\logout.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<conio.h>
+
+1673770796 source:e:\c program\first_class\warehousemanagement\mainmenu.c
+	<stdio.h>
+	<stdlib.h>
+
+1673771072 source:e:\c program\first_class\warehousemanagement\registeringtheentryofgoods.c
+	<stdio.h>
+	<string.h>
+
+1673766255 source:e:\c program\first_class\warehousemanagement\accountsettings.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<conio.h>
 
