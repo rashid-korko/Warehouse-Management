@@ -2,24 +2,14 @@
 #include<string.h>
 #include<stdlib.h>
 #include<conio.h>
+#include "structs.h"
+
+extern struct AccountData user;
+
 
 void AccountSettings()
 {
-    FILE *AccountData;
-    struct AccountData
-    {
-        char UserName[100];
-        char Name[100];
-        char LastName[100];
-        char NationalCode[11];
-        char PhoenNumber[12];
-        char Email[100];
-        char Password[100];
-        char ConfirmYourPassword[100];
-        char DateOfBirth[100];
-        char Sex[100];
-    };
-    struct AccountData user;
+    FILE *AccountDataFile;
     int i , length , n = 1 , tempint , choice;
     char temp , Yes_check;
     char UserName[100] , Password[100];
@@ -29,26 +19,26 @@ void AccountSettings()
     printf("Please enter your username and password for your account security : \n");
     do
     {
-        AccountData = fopen("AccountData.txt" , "rb");
+        AccountDataFile = fopen("AccountData.txt" , "rb");
         printf("Username : ");
         gets(UserName);
         printf("Password : ");
         gets(Password);
         do
         {
-            fread(&user , sizeof(struct AccountData) , 1 , AccountData);
+            fread(&user , sizeof(struct AccountData) , 1 , AccountDataFile);
             if ((strcmp(UserName , user.UserName) == 0) && (strcmp(Password , user.Password) == 0))
             {
                 n = 0;
                 break;
             }
-        }while (!feof(AccountData));
+        }while (!feof(AccountDataFile));
         if (n != 0)
         {
             printf("Wrong credentials\nInvalid username or password...\n");
             n = 1;
         }
-        fclose(AccountData);
+        fclose(AccountDataFile);
     }while (n != 0);
     system("cls");
     printf("1.Name : %s\n" , user.Name);
@@ -172,7 +162,7 @@ void AccountSettings()
                gets(user.ConfirmYourPassword);
                if (strcmp(user.ConfirmYourPassword , user.Password) != 0)
                {
-                   printf("Those passwords didn’t match. Try again.\n");
+                   printf("Those passwords didnï¿½t match. Try again.\n");
                }
                else
                {

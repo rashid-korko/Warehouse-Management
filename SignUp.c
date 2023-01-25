@@ -1,27 +1,16 @@
 #include<stdio.h>
 #include<string.h>
+#include "structs.h"
+
+extern struct AccountData user;
 
 void SignUp()
 {
-    FILE *AccountData;
-    struct AccountData
-    {
-        char UserName[100];
-        char Name[100];
-        char LastName[100];
-        char NationalCode[11];
-        char PhoenNumber[12];
-        char Email[100];
-        char Password[100];
-        char ConfirmYourPassword[100];
-        char DateOfBirth[100];
-        char Sex[100];
-    };
-    struct AccountData user;
+    FILE *AccountDataFile;
     int i , length , n = 1 , tempint , choice;
     char temp , robot_check;
-    AccountData = fopen("AccountData.txt" , "a");
-    if (AccountData == NULL)
+    AccountDataFile = fopen("AccountData.txt" , "a");
+    if (AccountDataFile == NULL)
     {
         printf("ERROR , File could not be opened");
     }
@@ -62,7 +51,7 @@ void SignUp()
            gets(user.ConfirmYourPassword);
            if (strcmp(user.ConfirmYourPassword , user.Password) != 0)
            {
-               printf("Those passwords didn’t match. Try again.\n");
+               printf("Those passwords didn't match. Try again.\n");
            }
            else
            {
@@ -164,7 +153,7 @@ void SignUp()
                printf("You entered an incorrect option, please select again.\n");
            }
         }while (n != 0);
-        fwrite(&user , sizeof(struct AccountData) , 1 , AccountData);
+        fwrite(&user , sizeof(struct AccountData) , 1 , AccountDataFile);
         fflush(stdin);
         do
         {
@@ -174,7 +163,7 @@ void SignUp()
             if (robot_check != 'y')
                 n = 1;
         }while (n != 0);
-        fclose(AccountData);
+        fclose(AccountDataFile);
         printf("Your data has been saved........\nThank you for this information....");
     }
 }

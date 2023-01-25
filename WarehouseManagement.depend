@@ -3,27 +3,31 @@
 	<stdio.h>
 	<stdlib.h>
 
-1673852750 source:e:\c program\first_class\warehousemanagement\login.c
+1674228364 source:e:\c program\first_class\warehousemanagement\login.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
 	<conio.h>
+	"structs.h"
 
-1673259335 source:e:\c program\first_class\warehousemanagement\main.c
+1674672409 source:e:\c program\first_class\warehousemanagement\main.c
+	<stdio.h>
+	<stdlib.h>
+	"structs.h"
+
+1674407542 source:e:\c program\first_class\warehousemanagement\signup.c
+	<stdio.h>
+	<string.h>
+	"structs.h"
+
+1673854295 source:e:\c program\first_class\warehousemanagement\loginpage.c
 	<stdio.h>
 	<stdlib.h>
 
-1673852506 source:e:\c program\first_class\warehousemanagement\signup.c
+1674384835 source:e:\c program\first_class\warehousemanagement\newproductregistration.c
 	<stdio.h>
 	<string.h>
-
-1673266896 source:e:\c program\first_class\warehousemanagement\loginpage.c
-	<stdio.h>
-	<stdlib.h>
-
-1673770759 source:e:\c program\first_class\warehousemanagement\newproductregistration.c
-	<stdio.h>
-	<string.h>
+	"structs.h"
 
 1673853909 source:e:\c program\first_class\warehousemanagement\logout.c
 	<stdio.h>
@@ -31,17 +35,26 @@
 	<stdlib.h>
 	<conio.h>
 
-1673770796 source:e:\c program\first_class\warehousemanagement\mainmenu.c
+1674383943 source:e:\c program\first_class\warehousemanagement\mainmenu.c
 	<stdio.h>
 	<stdlib.h>
 
-1673771072 source:e:\c program\first_class\warehousemanagement\registeringtheentryofgoods.c
+1674384751 source:e:\c program\first_class\warehousemanagement\registeringtheentryofgoods.c
 	<stdio.h>
 	<string.h>
+	"structs.h"
 
-1673766255 source:e:\c program\first_class\warehousemanagement\accountsettings.c
+1674370662 source:e:\c program\first_class\warehousemanagement\accountsettings.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
 	<conio.h>
+	"structs.h"
+
+1674672211 e:\c program\first_class\warehousemanagement\structs.h
+
+1674673860 source:e:\c program\first_class\warehousemanagement\importdatafromfile.c
+	<stdio.h>
+	<stdlib.h>
+	"structs.h"
 

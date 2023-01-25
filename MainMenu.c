@@ -14,15 +14,15 @@ void MainMenu()
       case 1:
         NewProductRegistration();
         break;
-//      case 2:
-//        RegisteringTheEntryOfGoods();
-//        break;
-//      case 3:
-//        RegisteringTheExitOfGoods();
-//        break;
-//      case 4:
-//        Reports();
-//        break;
+     case 2:
+       RegisteringTheEntryOfGoods();
+       break;
+    //  case 3:
+    //    RegisteringTheExitOfGoods();
+    //    break;
+    //  case 4:
+    //    Reports();
+    //    break;
       case 5:
         AccountSettings();
         break;

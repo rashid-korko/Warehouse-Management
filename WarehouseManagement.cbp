@@ -58,6 +58,9 @@
 		<Unit filename="SignUp.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="importDataFromFile.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

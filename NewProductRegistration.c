@@ -1,22 +1,13 @@
 #include<stdio.h>
 #include<string.h>
-
+#include "structs.h"
 
 void NewProductRegistration()
 {
-    FILE *ProductData;
-     struct ProductData
-    {
-        char NameOfTheProduct[100];
-        char BrandOfTheProduct[100];
-        char ModelOfTheProduct[100];
-        char ProductPrice[100];
-        char Explanations[100];
-        char UniqueProductIdentifiers[100];
-    };
+    FILE *ProductDataFile;
     struct ProductData product;
-    ProductData = fopen("ProductData.txt" , "ab");
-    if (ProductData == NULL)
+    ProductDataFile = fopen("ProductData.txt" , "a+");
+    if (ProductDataFile == NULL)
     {
         printf("ERROR , File could not be opened");
     }
@@ -25,6 +16,8 @@ void NewProductRegistration()
         fflush(stdin);
         printf("====>Welcome to the new product registration page<====\n\n");
         printf("We need some information about the new product, please enter this information....\n\n");
+        printf("Product ID : ");
+        scanf("%d" , &product.ProductID);
         printf("Name of the product : ");
         gets(product.NameOfTheProduct);
         printf("Brand of the product : ");
@@ -37,7 +30,7 @@ void NewProductRegistration()
         gets(product.Explanations);
         printf("Unique product identifiers : ");
         gets(product.UniqueProductIdentifiers);
-        fwrite(&product , sizeof(struct ProductData) , 1 , ProductData);
-        fclose(ProductData);
+        fwrite(&product , sizeof(struct ProductData) , 1 , ProductDataFile);
+        fclose(ProductDataFile);
     }
 }
