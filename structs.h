@@ -11,11 +11,15 @@ struct AccountData
     char DateOfBirth[100];
     char Sex[100];
 };
+
+
 typedef struct Node
 {
     struct AccountData user;
     struct Node *next;
 } account_list;
+
+
 struct ImportAndExportProductFromWarehouse
 {
     int ProductID;
@@ -24,6 +28,15 @@ struct ImportAndExportProductFromWarehouse
     char TransactionDate[100];
     int RegistrantUserID;
 };
+
+
+typedef struct ProductNode
+{
+    struct ImportAndExportProductFromWarehouse product;
+    struct ProductNode *next;
+} Product_list;
+
+
 struct ProductData
 {
     int ProductID;

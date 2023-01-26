@@ -42,8 +42,10 @@ void RegisteringTheEntryOfGoods()
         printf("Number Of Products In This Transaction : ");
         scanf("%d" , &product.NumberOfProductsInThisTransaction);
         printf("Transaction Date : ");
-        gets(product.TransactionDate);
+        scanf("%s" , product.TransactionDate);
         printf("Registrant User ID : ");
         scanf("%d" , &product.RegistrantUserID);
+        fwrite(&product , sizeof(struct ImportAndExportProductFromWarehouse ) , 1 , EntryAndExityProductsFile);
+        fclose(EntryAndExityProductsFile);
     }
 }

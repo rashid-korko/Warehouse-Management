@@ -2,14 +2,17 @@
 #include<string.h>
 #include "structs.h"
 
-extern struct AccountData user;
+// extern struct AccountData user;
+extern account_list head_account;
 
 void SignUp()
 {
+
+    struct AccountData user;   
     FILE *AccountDataFile;
     int i , length , n = 1 , tempint , choice;
     char temp , robot_check;
-    AccountDataFile = fopen("AccountData.txt" , "a");
+    // AccountDataFile = fopen("AccountData.txt" , "a");
     if (AccountDataFile == NULL)
     {
         printf("ERROR , File could not be opened");
@@ -153,7 +156,8 @@ void SignUp()
                printf("You entered an incorrect option, please select again.\n");
            }
         }while (n != 0);
-        fwrite(&user , sizeof(struct AccountData) , 1 , AccountDataFile);
+        // fwrite(&user , sizeof(struct AccountData) , 1 , AccountDataFile);
+        PushAccountFromFile(&head_account , user);
         fflush(stdin);
         do
         {
@@ -163,7 +167,7 @@ void SignUp()
             if (robot_check != 'y')
                 n = 1;
         }while (n != 0);
-        fclose(AccountDataFile);
+        // fclose(AccountDataFile);
         printf("Your data has been saved........\nThank you for this information....");
     }
 }

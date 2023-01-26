@@ -1,5 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "structs.h"
+
+
+extern account_list head_account;
 
 void LoginPage()
 {
@@ -12,11 +16,14 @@ void LoginPage()
     {
       case 1:
         SignUp();
+        LoginPage();
+        break;
       case 2:
         LogIn();
         MainMenu();
         break;
       case 3:
+      WriteAccountsInFile(head_account);
         break;
       default:
         LoginPage();

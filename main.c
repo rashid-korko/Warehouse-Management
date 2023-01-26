@@ -2,15 +2,15 @@
 #include <stdlib.h>
 #include "structs.h"
 
-
-account_list *head_account = NULL;
+struct ImportAndExportProductFromWarehouse product;
+account_list * head_account = NULL;
 struct AccountData user;
-
+Product_list *head_product = NULL;
 
 
 void main()
 {
-//    first_account = malloc(sizeof(struct Node));
+    ImportProductDataFromFile();
     ImportDataFromFile();
-//    LoginPage();
+    LoginPage();
 }

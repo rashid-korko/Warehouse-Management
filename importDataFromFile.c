@@ -3,11 +3,15 @@
 #include "structs.h"
 
 extern struct AccountData user;
-extern account_list head_account;
+extern account_list *head_account;
 
-void PushAccountFromFile(account_list *head, struct AccountData user) {
+void PushAccountFromFile(account_list *head, struct AccountData user)
+{
     account_list *current = head;
-    while (current->next != NULL) {
+    while (current->next != NULL)
+    {
+        printf("\n *** %s ==== %s ******\n", current->user.Email, head->user.Email);
+        sleep(3);
         current = current->next;
     }
     current->next = (account_list *) malloc(sizeof(account_list));
@@ -22,7 +26,8 @@ void WriteAccountsInFile(account_list *head)
     FILE *AccountDataFile;
     AccountDataFile = fopen("AccountData.txt" , "w");
     account_list *current = head;
-    while (current != NULL) {
+    while (current != NULL)
+    {
         printf("%s\n", current->user.UserName);
         fwrite(&current->user , sizeof(struct AccountData) , 1 , AccountDataFile);
         current = current->next;
@@ -38,15 +43,17 @@ void ImportDataFromFile()
    checked_end_of_file = fread(&user , sizeof(struct AccountData) , 1 , AccountDataFile);
    if (checked_end_of_file)
    {
-        head_account.user = user;
-        head_account.next = NULL;
+       head_account = (account_list *) malloc(sizeof(account_list));
+       head_account->user = user;
+       head_account->next = NULL;
    }
    while (checked_end_of_file)
    {
        checked_end_of_file = fread(&user , sizeof(struct AccountData) , 1 , AccountDataFile);
-       if(checked_end_of_file){
-           PushAccountFromFile(&head_account , user);
+       if(checked_end_of_file)
+       {
+           PushAccountFromFile(head_account , user);
        }
    }
-   WriteAccountsInFile(&head_account);
+//   WriteAccountsInFile(&head_account);
 }

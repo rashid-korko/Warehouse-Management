@@ -34,6 +34,9 @@
 		<Unit filename="AccountSettings.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="ImportProductDataFromFile.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="LineByLine.c">
 			<Option compilerVar="CC" />
 		</Unit>
