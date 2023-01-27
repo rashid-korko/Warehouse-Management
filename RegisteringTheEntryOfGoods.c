@@ -2,35 +2,40 @@
 #include<string.h>
 #include "structs.h"
 
+extern ImportAndExportProductList *head_transaction_product;
+
 
 void RegisteringTheEntryOfGoods()
 {
-    struct ImportAndExportProductFromWarehouse product;
-    FILE *EntryAndExityProductsFile;
+    struct ImportAndExportProductFromWarehouse transaction;
+    // FILE *EntryAndExityProductsFile;
     int choice , n = 0;
-    EntryAndExityProductsFile = fopen("EntryAndExityProducts.txt" , "a+");
-    if (EntryAndExityProductsFile == NULL)
-    {
-        printf("ERROR , File could not be opened");
-    }
-    else
-    {
+    // EntryAndExityProductsFile = fopen("EntryAndExityProducts.txt" , "a+");
+    // if (EntryAndExityProductsFile == NULL)
+    // {
+    //     printf("ERROR , File could not be opened");
+    // }
+    // else
+    // {
         fflush(stdin);
         printf("====>Welcome to the Registering The Entry Of Products page<====\n\n");
         printf("Product ID : ");
-        scanf("%d" , &product.ProductID);
+        scanf("%d" , &transaction.ProductID);
         do
         {
-        printf("Transaction Type :\n\t1.Enter products.\n\t2.Exit products.\n====>please enter the number of your choice : ");
+        printf("Transaction Type :\n\t");
+        printf("1.Enter products.\n\t");
+        printf("2.Exit products.\n");
+        printf("====>please enter the number of your choice : ");
         scanf("%d" , &choice);
         switch (choice)
         {
         case 1:
-            product.TransactionType == "Enter";
+            transaction.TransactionType == "Enter";
             n = 0;
             break;
         case 2:
-            product.TransactionType == "Exit";
+            transaction.TransactionType == "Exit";
             n = 0;
             break;
         default:
@@ -40,12 +45,14 @@ void RegisteringTheEntryOfGoods()
         }
         }while (n != 0);
         printf("Number Of Products In This Transaction : ");
-        scanf("%d" , &product.NumberOfProductsInThisTransaction);
+        scanf("%d" , &transaction.ID);
         printf("Transaction Date : ");
-        scanf("%s" , product.TransactionDate);
+        scanf("%s" , transaction.TransactionDate);
         printf("Registrant User ID : ");
-        scanf("%d" , &product.RegistrantUserID);
-        fwrite(&product , sizeof(struct ImportAndExportProductFromWarehouse ) , 1 , EntryAndExityProductsFile);
-        fclose(EntryAndExityProductsFile);
-    }
+        scanf("%s" , transaction.UserName);
+
+        PushTransactionProductFromFile(head_transaction_product, transaction);
+        // fwrite(&transaction , sizeof(struct ImportAndExportProductFromWarehouse ) , 1 , EntryAndExityProductsFile);
+        // fclose(EntryAndExityProductsFile);
+    // }
 }

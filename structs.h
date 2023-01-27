@@ -22,28 +22,37 @@ typedef struct Node
 
 struct ImportAndExportProductFromWarehouse
 {
+    int ID; 
     int ProductID;
+    char UserName[100];
     char TransactionType[100];
-    int NumberOfProductsInThisTransaction;
     char TransactionDate[100];
-    int RegistrantUserID;
 };
 
 
-typedef struct ProductNode
+typedef struct ImportAndExportProductNode
 {
-    struct ImportAndExportProductFromWarehouse product;
-    struct ProductNode *next;
-} Product_list;
+    struct ImportAndExportProductFromWarehouse transaction;
+    struct ImportAndExportProductNode *next;
+} ImportAndExportProductList;
 
 
 struct ProductData
 {
-    int ProductID;
+    int ID;
     char NameOfTheProduct[100];
     char BrandOfTheProduct[100];
     char ModelOfTheProduct[100];
     char ProductPrice[100];
     char Explanations[100];
-    char UniqueProductIdentifiers[100];
+    
 };
+
+
+
+typedef struct ProductNode
+{
+    struct ProductData product;
+    struct ProductNode *next;
+} ProductList;
+
