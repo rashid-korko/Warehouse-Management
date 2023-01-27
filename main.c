@@ -5,7 +5,7 @@
 struct ImportAndExportProductFromWarehouse product;
 account_list * head_account = NULL;
 struct AccountData user;
-Product_list *head_product = NULL;
+Product_list * head_product = NULL;
 int authenticate = 0;
 char auth_user[100];
 int debuging = 0;
