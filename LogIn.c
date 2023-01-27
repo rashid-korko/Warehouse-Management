@@ -5,36 +5,40 @@
 #include "structs.h"
 
 extern struct AccountData user;
+extern account_list *head_account;
+extern int authenticate;
+extern char auth_user[100];
 
-void LogIn()
+int LogIn()
 {
-    FILE *AccountDataFile;
     char UserName[100] , Password[100];
-    int n = 1;
+    int check_login = 0;
     system("cls");
     printf("====>Welcome to the login page<====\n\n");
     fflush(stdin);
-    do
-    {
-        AccountDataFile = fopen("AccountData.txt" , "r");
-        printf("Username : ");
-        gets(UserName);
-        printf("Password : ");
-        gets(Password);
-        do
-        {
-            fread(&user , sizeof(struct AccountData) , 1 , AccountDataFile);
-            if ((strcmp(UserName , user.UserName) == 0) && (strcmp(Password , user.Password) == 0))
-            {
-                n = 0;
-            }
-        }while (!feof(AccountDataFile));
-        if (n != 0)
-        {
-            printf("Wrong credentials\nInvalid username or password...\n");
-            n = 1;
-        }
-        fclose(AccountDataFile);
-    }while (n != 0);
+    printf("Username : ");
+    gets(UserName);
+    printf("Password : ");
+    gets(Password);
+    check_login = checkLogin(head_account, UserName, Password);
+    return check_login;
 }
 
+
+int checkLogin(account_list *head, char username[], char password[])
+{
+    int auth = 0;
+    account_list *current = head;
+    while (current != NULL)
+    {
+        if ((strcmp(current->user.UserName, username)) == 0 && (strcmp(current->user.Password, password) == 0))
+        {
+            auth = 1;
+            authenticate = 1;
+            strcpy(auth_user, username);
+            return auth;
+        }
+        current = current->next;
+    }
+    return auth;
+}

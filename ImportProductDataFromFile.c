@@ -11,8 +11,6 @@ void PushProductFromFile(Product_list *head, struct ImportAndExportProductFromWa
    Product_list *current = head;
    while (current->next != NULL)
    {
-       printf("\n *** %d ***\n", current->next);
-       sleep(3);
        current = current->next;
    }
    current->next = (Product_list *) malloc(sizeof(Product_list));
