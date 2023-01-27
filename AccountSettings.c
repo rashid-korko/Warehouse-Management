@@ -4,51 +4,37 @@
 #include<conio.h>
 #include "structs.h"
 
+
+extern char auth_user[100];
+extern account_list *head_account;
 extern struct AccountData user;
 
 
 void AccountSettings()
 {
-    FILE *AccountDataFile;
     int i , length , n = 1 , tempint , choice;
     char temp , Yes_check;
     char UserName[100] , Password[100];
     fflush(stdin);
     system("cls");
-    printf("====>Welcome to Warehouse Management account settings<====\n\n");
-    printf("Please enter your username and password for your account security : \n");
-    do
+    account_list *current = head_account;
+    while (current != NULL)
     {
-        AccountDataFile = fopen("AccountData.txt" , "rb");
-        printf("Username : ");
-        gets(UserName);
-        printf("Password : ");
-        gets(Password);
-        do
+        if (strcmp(current->user.UserName, auth_user) == 0 )
         {
-            fread(&user , sizeof(struct AccountData) , 1 , AccountDataFile);
-            if ((strcmp(UserName , user.UserName) == 0) && (strcmp(Password , user.Password) == 0))
-            {
-                n = 0;
-                break;
-            }
-        }while (!feof(AccountDataFile));
-        if (n != 0)
-        {
-            printf("Wrong credentials\nInvalid username or password...\n");
-            n = 1;
+            break;
         }
-        fclose(AccountDataFile);
-    }while (n != 0);
-    system("cls");
-    printf("1.Name : %s\n" , user.Name);
-    printf("2.LastName : %s\n" , user.LastName);
-    printf("3.National Code : %s\n" , user.NationalCode);
-    printf("4.Phone Number : %s\n" , user.PhoenNumber);
-    printf("5.Email : %s\n" , user.Email);
-    printf("6.Password : %s\n" , user.Password);
-    printf("7.Date Of Birth : %s\n" , user.DateOfBirth);
-    printf("8.Sex : %s\n" , user.Sex);
+        current = current->next;
+    }
+    printf("====>Welcome to Warehouse Management account settings<====\n\n");
+    printf("1.Name : %s\n" , current->user.Name);
+    printf("2.LastName : %s\n" , current->user.LastName);
+    printf("3.National Code : %s\n" , current->user.NationalCode);
+    printf("4.Phone Number : %s\n" , current->user.PhoenNumber);
+    printf("5.Email : %s\n" , current->user.Email);
+    printf("6.Password : %s\n" , current->user.Password);
+    printf("7.Date Of Birth : %s\n" , current->user.DateOfBirth);
+    printf("8.Sex : %s\n" , current->user.Sex);
     printf("9.Exit\n==>Please enter the number of your choice for change this information : ");
     scanf("%d" , &choice);
     system("cls");
@@ -58,13 +44,13 @@ void AccountSettings()
       case 1:
           {
             printf("Name : ");
-            gets(user.Name);
+            gets(current->user.Name);
             break;
           }
       case 2:
           {
             printf("Last Name : ");
-            gets(user.LastName);
+            gets(current->user.LastName);
             break;
           }
       case 3:
@@ -73,11 +59,11 @@ void AccountSettings()
             {
               n = 1;
               printf("National Code (ex:0123456789) : ");
-              gets(user.NationalCode);
-              length = strlen(user.NationalCode);
+              gets(current->user.NationalCode);
+              length = strlen(current->user.NationalCode);
               for ( i = 0 ; i < length ; i++ )
               {
-                  tempint = user.NationalCode[i];
+                  tempint = current->user.NationalCode[i];
                   if (tempint < 48 || tempint > 57)
                   {
                       break;
@@ -90,7 +76,7 @@ void AccountSettings()
               else
               {
                   printf("You must enter only numbers and ten numbers only, as shown in the example, please enter it again : \n");
-                  user.NationalCode[length] = ".";
+                  current->user.NationalCode[length] = ".";
               }
             }while (n != 0);
             break;
@@ -101,11 +87,11 @@ void AccountSettings()
             {
               n = 1;
               printf("Phoen Number (ex:09123456789) : ");
-              gets(user.PhoenNumber);
-              length = strlen(user.PhoenNumber);
+              gets(current->user.PhoenNumber);
+              length = strlen(current->user.PhoenNumber);
               for ( i = 0 ; i < length ; i++ )
               {
-                  tempint = user.PhoenNumber[i];
+                  tempint = current->user.PhoenNumber[i];
                   if (tempint < 48 || tempint > 57)
                   {
                       break;
@@ -118,7 +104,7 @@ void AccountSettings()
               else
               {
                   printf("You must enter only numbers and eleven numbers only, as shown in the example, please enter it again : \n");
-                  user.PhoenNumber[length] = ".";
+                  current->user.PhoenNumber[length] = ".";
               }
             }while (n != 0);
             break;
@@ -129,11 +115,11 @@ void AccountSettings()
             {
               n = 1;
               printf("Email (ex:******@****.com) : ");
-              gets(user.Email);
-              length = strlen(user.Email);
+              gets(current->user.Email);
+              length = strlen(current->user.Email);
               for ( i = 0 ; i < length ; i++ )
               {
-                  temp = user.Email[i];
+                  temp = current->user.Email[i];
                   if (temp == ' ')
                   {
                       break;
@@ -146,7 +132,7 @@ void AccountSettings()
               else
               {
                   printf("You do not have to enter a space in the Email, please enter it again : \n");
-                  user.Email[length] = ".";
+                  current->user.Email[length] = ".";
               }
             }while (n != 0);
             break;
@@ -154,13 +140,13 @@ void AccountSettings()
       case 6:
           {
             printf("New Password : ");
-            gets(user.Password);
+            gets(current->user.Password);
             do
             {
                n = 1;
                printf("Confirm Your New Password : ");
-               gets(user.ConfirmYourPassword);
-               if (strcmp(user.ConfirmYourPassword , user.Password) != 0)
+               gets(current->user.ConfirmYourPassword);
+               if (strcmp(current->user.ConfirmYourPassword , current->user.Password) != 0)
                {
                    printf("Those passwords didn�t match. Try again.\n");
                }
@@ -174,7 +160,7 @@ void AccountSettings()
       case 7:
           {
             printf("Date of birth (ex:yyyy/mm/dd) : ");
-            gets(user.DateOfBirth);
+            gets(current->user.DateOfBirth);
             break;
           }
       case 8:
@@ -185,11 +171,11 @@ void AccountSettings()
                scanf("%d" , &choice);
                n = 0;
                if (choice == 1)
-                   strcpy(user.Sex , "Male");
+                   strcpy(current->user.Sex , "Male");
                else if (choice == 2)
-                   strcpy(user.Sex , "Female");
+                   strcpy(current->user.Sex , "Female");
                else if (choice == 3)
-                   strcpy(user.Sex , "Rather not say");
+                   strcpy(current->user.Sex , "Rather not say");
                else
                {
                    n = 1;
@@ -199,6 +185,7 @@ void AccountSettings()
             break;
           }
       case 9:
+        MainMenu();
         break;
       default:
         AccountSettings();

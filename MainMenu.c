@@ -29,8 +29,8 @@ void MainMenu()
         NewProductRegistration();
         break;
      case 2:
-       RegisteringTheEntryOfGoods();
-       break;
+        RegisteringTheEntryOfGoods();
+        break;
     //  case 3:
     //    RegisteringTheExitOfGoods();
     //    break;

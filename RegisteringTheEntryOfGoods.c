@@ -8,15 +8,7 @@ extern ImportAndExportProductList *head_transaction_product;
 void RegisteringTheEntryOfGoods()
 {
     struct ImportAndExportProductFromWarehouse transaction;
-    // FILE *EntryAndExityProductsFile;
     int choice , n = 0;
-    // EntryAndExityProductsFile = fopen("EntryAndExityProducts.txt" , "a+");
-    // if (EntryAndExityProductsFile == NULL)
-    // {
-    //     printf("ERROR , File could not be opened");
-    // }
-    // else
-    // {
         fflush(stdin);
         printf("====>Welcome to the Registering The Entry Of Products page<====\n\n");
         printf("Product ID : ");
@@ -50,9 +42,5 @@ void RegisteringTheEntryOfGoods()
         scanf("%s" , transaction.TransactionDate);
         printf("Registrant User ID : ");
         scanf("%s" , transaction.UserName);
-
         PushTransactionProductFromFile(head_transaction_product, transaction);
-        // fwrite(&transaction , sizeof(struct ImportAndExportProductFromWarehouse ) , 1 , EntryAndExityProductsFile);
-        // fclose(EntryAndExityProductsFile);
-    // }
 }

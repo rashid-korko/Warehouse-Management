@@ -3,19 +3,19 @@
 	<stdio.h>
 	<stdlib.h>
 
-1674809372 source:e:\c program\first_class\warehousemanagement\login.c
+1674829727 source:e:\c program\first_class\warehousemanagement\login.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
 	<conio.h>
 	"structs.h"
 
-1674809069 source:e:\c program\first_class\warehousemanagement\main.c
+1674829728 source:e:\c program\first_class\warehousemanagement\main.c
 	<stdio.h>
 	<stdlib.h>
 	"structs.h"
 
-1674811439 source:e:\c program\first_class\warehousemanagement\signup.c
+1674829728 source:e:\c program\first_class\warehousemanagement\signup.c
 	<stdio.h>
 	<string.h>
 	"structs.h"
@@ -25,42 +25,41 @@
 	<stdlib.h>
 	"structs.h"
 
-1674384835 source:e:\c program\first_class\warehousemanagement\newproductregistration.c
+1674829728 source:e:\c program\first_class\warehousemanagement\newproductregistration.c
 	<stdio.h>
 	<string.h>
 	"structs.h"
 
-1673853909 source:e:\c program\first_class\warehousemanagement\logout.c
-	<stdio.h>
-	<string.h>
-	<stdlib.h>
-	<conio.h>
-
-1674383943 source:e:\c program\first_class\warehousemanagement\mainmenu.c
-	<stdio.h>
-	<stdlib.h>
-
-1674740057 source:e:\c program\first_class\warehousemanagement\registeringtheentryofgoods.c
-	<stdio.h>
-	<string.h>
-	"structs.h"
-
-1674370662 source:e:\c program\first_class\warehousemanagement\accountsettings.c
+1674829727 source:e:\c program\first_class\warehousemanagement\logout.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
 	<conio.h>
 	"structs.h"
 
-1674740241 e:\c program\first_class\warehousemanagement\structs.h
-
-1674811278 source:e:\c program\first_class\warehousemanagement\importdatafromfile.c
+1674829727 source:e:\c program\first_class\warehousemanagement\mainmenu.c
 	<stdio.h>
 	<stdlib.h>
 	"structs.h"
 
-1674806340 source:e:\c program\first_class\warehousemanagement\importproductdatafromfile.c
+1674829728 source:e:\c program\first_class\warehousemanagement\registeringtheentryofgoods.c
+	<stdio.h>
+	<string.h>
+	"structs.h"
+
+1674843512 source:e:\c program\first_class\warehousemanagement\accountsettings.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<conio.h>
+	"structs.h"
+
+1674829728 e:\c program\first_class\warehousemanagement\structs.h
+
+1674829728 source:e:\c program\first_class\warehousemanagement\importdatafromfile.c
 	<stdio.h>
 	<stdlib.h>
 	"structs.h"
+
+1674829727 source:e:\c program\first_class\warehousemanagement\importproductdatafromfile.c
 
