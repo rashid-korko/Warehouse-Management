@@ -10,6 +10,7 @@ int authenticate = 0;
 char auth_user[100];
 int debuging = 0;
 
+
 void debug(int step, int sleep_time){
     if (debuging)
     {

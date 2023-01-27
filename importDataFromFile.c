@@ -10,8 +10,6 @@ void PushAccountFromFile(account_list *head, struct AccountData user)
     account_list *current = head;
     while (current->next != NULL)
     {
-        // printf("\n *** %s ==== %s ******\n", current->user.Email, head->user.Email);
-        // sleep(3);
         current = current->next;
     }
     current->next = (account_list *) malloc(sizeof(account_list));
@@ -28,7 +26,6 @@ void WriteAccountsInFile(account_list *head)
     account_list *current = head;
     while (current != NULL)
     {
-        // printf("%s\n", current->user.UserName);
         fwrite(&current->user , sizeof(struct AccountData) , 1 , AccountDataFile);
         current = current->next;
     }
@@ -55,5 +52,4 @@ void ImportDataFromFile()
            PushAccountFromFile(head_account , user);
        }
    }
-//   WriteAccountsInFile(&head_account);
 }

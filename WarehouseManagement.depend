@@ -3,14 +3,14 @@
 	<stdio.h>
 	<stdlib.h>
 
-1674806925 source:e:\c program\first_class\warehousemanagement\login.c
+1674809372 source:e:\c program\first_class\warehousemanagement\login.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
 	<conio.h>
 	"structs.h"
 
-1674806210 source:e:\c program\first_class\warehousemanagement\main.c
+1674809069 source:e:\c program\first_class\warehousemanagement\main.c
 	<stdio.h>
 	<stdlib.h>
 	"structs.h"
@@ -54,7 +54,7 @@
 
 1674740241 e:\c program\first_class\warehousemanagement\structs.h
 
-1674805827 source:e:\c program\first_class\warehousemanagement\importdatafromfile.c
+1674811278 source:e:\c program\first_class\warehousemanagement\importdatafromfile.c
 	<stdio.h>
 	<stdlib.h>
 	"structs.h"

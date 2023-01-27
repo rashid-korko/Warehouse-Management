@@ -2,8 +2,27 @@
 #include<string.h>
 #include "structs.h"
 
-// extern struct AccountData user;
-extern account_list head_account;
+
+extern account_list *head_account;
+extern struct AccountData user;
+
+
+int CheckUsedUsername(account_list *head , char username[])
+{
+    account_list *current = head;
+    while (current != NULL)
+    {
+        if (strcmp(current->user.UserName, username) == 0 )
+        {
+            printf("Your username is being used by someone else.\nPlease enter another username...\n");
+            return 1;
+        }
+        current = current->next;
+    }
+    return 0;
+}
+
+
 
 void SignUp()
 {
@@ -35,6 +54,7 @@ void SignUp()
             printf("You do not have to enter a space in the username, please enter it again : \n");
             user.UserName[length] = ".";
         }
+        n = CheckUsedUsername(head_account , user.UserName);
     }while (n != 0);
     printf("Password : ");
     gets(user.Password);
@@ -147,7 +167,7 @@ void SignUp()
             printf("You entered an incorrect option, please select again.\n");
         }
     }while (n != 0);
-    PushAccountFromFile(&head_account , user);
+    PushAccountFromFile(head_account , user);
     fflush(stdin);
     do
     {
@@ -157,7 +177,9 @@ void SignUp()
         if (robot_check != 'y')
             n = 1;
     }while (n != 0);
-    printf("Your data has been saved........\nThank you for this information....");
+    printf("Your data has been saved........\nThank you for this information....\n");
+    sleep(10);
+    system("cls");
 }
 
 

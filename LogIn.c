@@ -31,7 +31,7 @@ int checkLogin(account_list *head, char username[], char password[])
     account_list *current = head;
     while (current != NULL)
     {
-        if ((strcmp(current->user.UserName, username)) == 0 && (strcmp(current->user.Password, password) == 0))
+        if ((strcmp(current->user.UserName, username) == 0) && (strcmp(current->user.Password, password) == 0))
         {
             auth = 1;
             authenticate = 1;
