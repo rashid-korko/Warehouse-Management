@@ -14,12 +14,11 @@ void MainMenu()
     system("cls");
     printf("====>Welcome to Warehouse Management Main menu<====\n\n\t");
     printf("1- New product registration\n\t");
-    printf("2- Registering the entry of goods\n\t");
-    printf("3- Registering the exit of goods\n\t");
-    printf("4- Reports\n\t");
-    printf("5- Account settings\n\t");
-    printf("6- Logout\n\t"); // Done
-    printf("7- Exit\n"); // Done
+    printf("2- Transactions\n\t");
+    printf("3- Reports\n\t");
+    printf("4- Account settings\n\t");
+    printf("5- Logout\n\t"); // Done
+    printf("6- Exit\n"); // Done
     printf("==>Please enter the number of your choice : ");
     scanf("%d" , &choice);
     system("cls");
@@ -29,21 +28,18 @@ void MainMenu()
         NewProductRegistration();
         break;
      case 2:
-        RegisteringTheEntryOfGoods();
+        Transactions();
         break;
     //  case 3:
-    //    RegisteringTheExitOfGoods();
-    //    break;
-    //  case 4:
     //    Reports();
     //    break;
-      case 5:
+      case 4:
         AccountSettings();
         break;
-      case 6:
+      case 5:
         LogOut();
         break;
-      case 7:
+      case 6:
         WriteAccountsInFile(head_account);
         WriteProductsInFile(head_product);
         WriteTransactionProductsInFile(head_transaction_product);

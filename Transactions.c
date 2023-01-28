@@ -5,7 +5,7 @@
 extern ImportAndExportProductList *head_transaction_product;
 
 
-void RegisteringTheEntryOfGoods()
+void Transactions()
 {
     struct ImportAndExportProductFromWarehouse transaction;
     int choice , n = 0;

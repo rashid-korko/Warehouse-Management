@@ -37,7 +37,7 @@
 	<conio.h>
 	"structs.h"
 
-1674829727 source:e:\c program\first_class\warehousemanagement\mainmenu.c
+1674890124 source:e:\c program\first_class\warehousemanagement\mainmenu.c
 	<stdio.h>
 	<stdlib.h>
 	"structs.h"
@@ -47,7 +47,7 @@
 	<string.h>
 	"structs.h"
 
-1674843512 source:e:\c program\first_class\warehousemanagement\accountsettings.c
+1674843884 source:e:\c program\first_class\warehousemanagement\accountsettings.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
@@ -62,4 +62,9 @@
 	"structs.h"
 
 1674829727 source:e:\c program\first_class\warehousemanagement\importproductdatafromfile.c
+
+1674890344 source:e:\c program\first_class\warehousemanagement\transactions.c
+	<stdio.h>
+	<string.h>
+	"structs.h"
 
