@@ -23,7 +23,6 @@ int CheckUsedID(ProductList *head , int ID)
 
 
 
-
 void NewProductRegistration()
 {
     int check;
@@ -47,6 +46,7 @@ void NewProductRegistration()
     gets(product.ProductPrice);
     printf("Explanations : ");
     gets(product.Explanations);
+    product.count = 0;
     PushProductFromFile(head_product, product);
 
 }

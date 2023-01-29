@@ -10,12 +10,12 @@
 	<conio.h>
 	"structs.h"
 
-1674829728 source:e:\c program\first_class\warehousemanagement\main.c
+1674942720 source:e:\c program\first_class\warehousemanagement\main.c
 	<stdio.h>
 	<stdlib.h>
 	"structs.h"
 
-1674829728 source:e:\c program\first_class\warehousemanagement\signup.c
+1674939439 source:e:\c program\first_class\warehousemanagement\signup.c
 	<stdio.h>
 	<string.h>
 	"structs.h"
@@ -25,7 +25,7 @@
 	<stdlib.h>
 	"structs.h"
 
-1674829728 source:e:\c program\first_class\warehousemanagement\newproductregistration.c
+1674946333 source:e:\c program\first_class\warehousemanagement\newproductregistration.c
 	<stdio.h>
 	<string.h>
 	"structs.h"
@@ -37,7 +37,7 @@
 	<conio.h>
 	"structs.h"
 
-1674890124 source:e:\c program\first_class\warehousemanagement\mainmenu.c
+1674929947 source:e:\c program\first_class\warehousemanagement\mainmenu.c
 	<stdio.h>
 	<stdlib.h>
 	"structs.h"
@@ -54,17 +54,32 @@
 	<conio.h>
 	"structs.h"
 
-1674829728 e:\c program\first_class\warehousemanagement\structs.h
+1674928090 e:\c program\first_class\warehousemanagement\structs.h
 
-1674829728 source:e:\c program\first_class\warehousemanagement\importdatafromfile.c
+1674945559 source:e:\c program\first_class\warehousemanagement\importdatafromfile.c
 	<stdio.h>
 	<stdlib.h>
 	"structs.h"
 
 1674829727 source:e:\c program\first_class\warehousemanagement\importproductdatafromfile.c
 
-1674890344 source:e:\c program\first_class\warehousemanagement\transactions.c
+1674936289 source:e:\c program\first_class\warehousemanagement\transactions.c
 	<stdio.h>
 	<string.h>
+	"structs.h"
+
+1674938018 source:e:\c program\first_class\warehousemanagement\reports.c
+	<stdio.h>
+	<stdlib.h>
+	"structs.h"
+
+1674926140 source:e:\c program\first_class\warehousemanagement\searchproducts.c
+	<stdio.h>
+	<stdlib.h>
+	"structs.h"
+
+1674938094 source:e:\c program\first_class\warehousemanagement\reportsfunction.c
+	<stdio.h>
+	<stdlib.h>
 	"structs.h"
 

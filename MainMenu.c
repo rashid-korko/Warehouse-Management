@@ -17,8 +17,8 @@ void MainMenu()
     printf("2- Transactions\n\t");
     printf("3- Reports\n\t");
     printf("4- Account settings\n\t");
-    printf("5- Logout\n\t"); // Done
-    printf("6- Exit\n"); // Done
+    printf("5- Logout\n\t");
+    printf("6- Exit\n");
     printf("==>Please enter the number of your choice : ");
     scanf("%d" , &choice);
     system("cls");
@@ -26,15 +26,19 @@ void MainMenu()
     {
       case 1:
         NewProductRegistration();
+        MainMenu();
         break;
      case 2:
         Transactions();
+        MainMenu();
         break;
-    //  case 3:
-    //    Reports();
-    //    break;
+     case 3:
+        Reports();
+        MainMenu();
+        break;
       case 4:
         AccountSettings();
+        MainMenu();
         break;
       case 5:
         LogOut();

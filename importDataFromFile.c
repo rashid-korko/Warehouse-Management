@@ -8,6 +8,7 @@ extern account_list *head_account;
 
 extern ImportAndExportProductList *head_transaction_product;
 extern struct ImportAndExportProductFromWarehouse tarnsaction_product;
+extern struct ImportAndExportProductFromWarehouse transaction;
 
 extern struct ProductData product;
 extern ProductList *head_product;
@@ -15,6 +16,13 @@ extern ProductList *head_product;
 void PushAccountFromFile(account_list *head, struct AccountData user)
 {
     account_list *current = head;
+    if(!current)
+    {
+        head_account = (account_list *) malloc(sizeof(account_list));
+        head_account->user = user;
+        head_account->next = NULL;
+        return;
+    }
     while (current->next != NULL)
     {
         current = current->next;
@@ -61,9 +69,16 @@ void WriteAccountsInFile(account_list *head)
 
 /// prodcut get and set file
 
-void PushProductFromFile(ProductList *head, struct ProductData product)
+void PushProductFromFile(ProductList *head , struct ProductData product)
 {
    ProductList *current = head;
+   if(!current)
+   {
+        head_product = (ProductList *) malloc(sizeof(ProductList));
+        head_product->product = product;
+        head_product->next = NULL;
+        return;
+   }
    while (current->next != NULL)
    {
        current = current->next;
@@ -72,7 +87,8 @@ void PushProductFromFile(ProductList *head, struct ProductData product)
    current->next->product = product;
    current->next->next = NULL;
 }
-void ImportProductDataFromFile()
+
+void ImportProductDataFromFile1()
 {
   size_t checked_end_of_file;
   FILE *file;
@@ -80,6 +96,7 @@ void ImportProductDataFromFile()
   checked_end_of_file = fread(&product , sizeof(struct ProductData) , 1 , file);
   if (checked_end_of_file)
   {
+       head_product = (ProductList *) malloc(sizeof(ProductList));
        head_product->product = product;
        head_product->next = NULL;
   }
@@ -117,6 +134,7 @@ void ImportTransactionProductDataFromFile()
   checked_end_of_file = fread(&tarnsaction_product , sizeof(struct ImportAndExportProductFromWarehouse) , 1 , file);
   if (checked_end_of_file)
   {
+       head_transaction_product = (ImportAndExportProductList *) malloc(sizeof(ImportAndExportProductList));
        head_transaction_product->transaction = tarnsaction_product;
        head_transaction_product->next = NULL;
   }
@@ -133,6 +151,12 @@ void ImportTransactionProductDataFromFile()
 void PushTransactionProductFromFile(ImportAndExportProductList *head, struct ImportAndExportProductFromWarehouse transaction)
 {
    ImportAndExportProductList *current = head;
+   if(!current){
+        head_transaction_product = (ImportAndExportProductList *) malloc(sizeof(ImportAndExportProductList));
+        head_transaction_product->transaction = transaction;
+        head_transaction_product->next = NULL;
+        return;
+    }
    while (current->next != NULL)
    {
        current = current->next;
@@ -146,7 +170,7 @@ void PushTransactionProductFromFile(ImportAndExportProductList *head, struct Imp
 void WriteTransactionProductsInFile(ImportAndExportProductList *head)
 {
     FILE *file;
-    file = fopen("ProductData.txt" , "w");
+    file = fopen("EntryAndExityProducts.txt" , "w");
     ImportAndExportProductList *current = head;
     while (current != NULL)
     {

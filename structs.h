@@ -22,7 +22,7 @@ typedef struct Node
 
 struct ImportAndExportProductFromWarehouse
 {
-    int ID; 
+    int NumberOfProductsInThisTransaction; 
     int ProductID;
     char UserName[100];
     char TransactionType[100];
@@ -40,12 +40,12 @@ typedef struct ImportAndExportProductNode
 struct ProductData
 {
     int ID;
+    int count;
     char NameOfTheProduct[100];
     char BrandOfTheProduct[100];
     char ModelOfTheProduct[100];
     char ProductPrice[100];
     char Explanations[100];
-    
 };
 
 

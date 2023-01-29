@@ -9,6 +9,7 @@ ImportAndExportProductList *head_transaction_product = NULL;
 struct AccountData user;
 struct ProductData product;
 struct ImportAndExportProductFromWarehouse tarnsaction_product;
+struct ImportAndExportProductFromWarehouse transaction;
 
 int authenticate = 0;
 char auth_user[100];
@@ -32,9 +33,12 @@ void main()
     {
         if (authenticate)
         {
-            ImportProductDataFromFile();
+            ImportProductDataFromFile1();
+            ImportTransactionProductDataFromFile();
             MainMenu();
-        }else{
+        }
+        else
+        {
             LoginPage();
         }
     }

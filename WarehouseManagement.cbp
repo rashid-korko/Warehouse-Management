@@ -34,9 +34,6 @@
 		<Unit filename="AccountSettings.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="ImportProductDataFromFile.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="LineByLine.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -55,10 +52,19 @@
 		<Unit filename="NewProductRegistration.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="RegisteringTheEntryOfGoods.c">
+		<Unit filename="Reports.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ReportsFunction.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="SearchProducts.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="SignUp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Transactions.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="importDataFromFile.c">

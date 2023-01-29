@@ -178,7 +178,7 @@ void SignUp()
             n = 1;
     }while (n != 0);
     printf("Your data has been saved........\nThank you for this information....\n");
-    sleep(10);
+    sleep(5);
     system("cls");
 }
 
