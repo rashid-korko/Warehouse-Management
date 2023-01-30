@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "structs.h"
 
+//This is a Main Menu of the first lists in the project
 
 extern account_list head_account;
 extern int authenticate;

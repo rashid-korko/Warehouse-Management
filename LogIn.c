@@ -9,6 +9,8 @@ extern account_list *head_account;
 extern int authenticate;
 extern char auth_user[100];
 
+//This function is for login
+
 int LogIn()
 {
     char UserName[100] , Password[100];
@@ -32,7 +34,7 @@ int LogIn()
     return check_login;
 }
 
-
+//This function is to ensure that the username and password are present in the data
 int checkLogin(account_list *head, char username[], char password[])
 {
     int auth = 0;

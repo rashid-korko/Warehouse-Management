@@ -3,6 +3,8 @@
 #include "structs.h"
 
 
+//This is a list of reports
+
 void Reports()
 {
     int choice;

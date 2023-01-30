@@ -6,7 +6,7 @@
 extern account_list *head_account;
 extern struct AccountData user;
 
-
+//This function is to ensure that the username is not repeated in memory
 int CheckUsedUsername(account_list *head , char username[])
 {
     account_list *current = head;
@@ -23,7 +23,7 @@ int CheckUsedUsername(account_list *head , char username[])
 }
 
 
-
+//This function is for logging new users into the project and taking information from the user and keeping it in memory
 void SignUp()
 {
     struct AccountData user;

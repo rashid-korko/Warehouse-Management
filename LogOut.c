@@ -2,8 +2,9 @@
 #include<string.h>
 #include<stdlib.h>
 #include<conio.h>
-
 #include "structs.h"
+
+
 
 extern struct AccountData user;
 extern account_list *head_account;
@@ -12,6 +13,7 @@ extern account_list *head_account;
 extern int authenticate;
 extern char auth_user;
 
+//This method is for LogOut the user
 
 void LogOut()
 {

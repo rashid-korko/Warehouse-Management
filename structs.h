@@ -1,3 +1,7 @@
+
+//This page is there structchers
+
+//this struct for account data
 struct AccountData
 {
     char UserName[100];
@@ -12,14 +16,14 @@ struct AccountData
     char Sex[100];
 };
 
-
+//this struct for account data in linked list
 typedef struct Node
 {
     struct AccountData user;
     struct Node *next;
 } account_list;
 
-
+//this struct for Import And Export Product From Warehouse (Transactions)
 struct ImportAndExportProductFromWarehouse
 {
     int NumberOfProductsInThisTransaction; 
@@ -29,14 +33,14 @@ struct ImportAndExportProductFromWarehouse
     char TransactionDate[100];
 };
 
-
+//this struct for Import And Export Product From Warehouse (Transactions)in linked list
 typedef struct ImportAndExportProductNode
 {
     struct ImportAndExportProductFromWarehouse transaction;
     struct ImportAndExportProductNode *next;
 } ImportAndExportProductList;
 
-
+//this struct for Product Data
 struct ProductData
 {
     int ID;
@@ -49,7 +53,7 @@ struct ProductData
 };
 
 
-
+//this struct for Product Data in linked list
 typedef struct ProductNode
 {
     struct ProductData product;

@@ -8,7 +8,7 @@ extern struct ImportAndExportProductFromWarehouse transaction;
 extern ProductList *head_product;
 extern struct ProductData product;
 
-
+//This function is for calculating the number of products in the warehouse
 void ProductCount(struct ImportAndExportProductFromWarehouse transaction , int choice)
 {
     ProductList *current = head_product;
@@ -42,7 +42,7 @@ void ProductCount(struct ImportAndExportProductFromWarehouse transaction , int c
 }
 
 
-
+//This function is used to enter the incoming and outgoing processes to and from the warehouse
 void Transactions()
 {
     int choice , n = 0;

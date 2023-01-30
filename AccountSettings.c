@@ -9,7 +9,7 @@ extern char auth_user[100];
 extern account_list *head_account;
 extern struct AccountData user;
 
-
+//This function is to enter the user settings in order to modify some data
 void AccountSettings()
 {
     int i , length , n = 1 , tempint , choice;

@@ -7,6 +7,7 @@ extern account_list *head_account;
 extern ProductList *head_product;
 extern ImportAndExportProductList *head_transaction_product;
 
+//This is a Main Menu of the second lists in the project
 
 void MainMenu()
 {

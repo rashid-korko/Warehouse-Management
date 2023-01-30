@@ -3,9 +3,10 @@
 #include "structs.h"
 
 extern ProductList *head_product;
-
 extern struct ProductData product;
 
+
+//This function is to ensure that the product ID has not been used previously
 int CheckUsedID(ProductList *head , int ID)
 {
     ProductList *current = head;
@@ -22,7 +23,7 @@ int CheckUsedID(ProductList *head , int ID)
 }
 
 
-
+//This function is for inserting new product data into memory
 void NewProductRegistration()
 {
     int check;

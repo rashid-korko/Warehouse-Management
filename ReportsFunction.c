@@ -3,6 +3,8 @@
 #include<string.h>
 #include"structs.h"
 
+//This page contains the functions of the reports
+
 
 extern struct AccountData user;
 extern account_list *head_account;
@@ -14,6 +16,8 @@ extern struct ProductData product;
 extern ProductList *head_product;
 
 
+
+//This function prints the number of each product inside the warehouse
 void QuantityOfEachProductInTheWarehouse()
 {
     ProductList *current = head_product;
@@ -36,6 +40,7 @@ void QuantityOfEachProductInTheWarehouse()
 }
 
 
+//This function prints product data of which there is a quantity greater than the number entered
 void TheListOfProductsOfWhichWeHaveMoreThanACertainAmount()
 {
     ProductList *current = head_product;
@@ -64,6 +69,7 @@ void TheListOfProductsOfWhichWeHaveMoreThanACertainAmount()
 }
 
 
+//This function prints product data of which there is a quantity less than the number entered
 void TheListOfProductsOfWhichWeHaveLessThanACertainAmount()
 {
     ProductList *current = head_product;
@@ -92,6 +98,8 @@ void TheListOfProductsOfWhichWeHaveLessThanACertainAmount()
 }
 
 
+
+//This is function by printing the total amount in the warehouse, the sum of all existing product prices
 void RiyalValueOfAllWarehouseProducts()
 {
     ProductList *current = head_product;
@@ -108,6 +116,7 @@ void RiyalValueOfAllWarehouseProducts()
 }
 
 
+//This function finds a specified product amount in the warehouse
 void RiyalValueOfAParticularProductInTheWarehouse()
 {
     ProductList *current = head_product;
@@ -131,6 +140,7 @@ void RiyalValueOfAParticularProductInTheWarehouse()
 }
 
 
+//This function prints all imports into the warehouse from a specified product and within a specified time period
 void TheNumberOfArrivalsOfASpecificProductInASpecificHistoricalPeriod()
 {
     struct Date
@@ -191,7 +201,7 @@ void TheNumberOfArrivalsOfASpecificProductInASpecificHistoricalPeriod()
     getch();
 }
 
-
+//This function prints all exports from the warehouse from a specified product and within a specified time period
 void TheNumberOfReleasesOfASpecificProductInASpecificHistoricalPeriod()
 {
     struct Date
@@ -253,6 +263,8 @@ void TheNumberOfReleasesOfASpecificProductInASpecificHistoricalPeriod()
 }
 
 
+
+//This function prints all exports from the warehouse and imports to the warehouse from a specific product and during a specific period of time
 void ReportOfTheArrivalAndDepartureOfASpecificItemInADetailedHistoricalperiod()
 {
     struct Date

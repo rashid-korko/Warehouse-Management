@@ -2,6 +2,8 @@
 #include<stdlib.h>
 #include "structs.h"
 
+//Here there are functions for taking data from files and putting them into linked lists, and functions for unloading memory
+
 extern struct AccountData user;
 extern account_list *head_account;
 
@@ -11,6 +13,8 @@ extern struct ImportAndExportProductFromWarehouse transaction;
 
 extern struct ProductData product;
 extern ProductList *head_product;
+
+/// Account Data get and set file
 
 void PushAccountFromFile(account_list *head, struct AccountData user)
 {
