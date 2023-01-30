@@ -34,17 +34,17 @@ void Reports()
         Reports();
         break;
       case 4:
-        RiyalValueOfAllWarehouseProducts(head_product);
+        RiyalValueOfAllWarehouseProducts();
         Reports();
         break;
       case 5:
         RiyalValueOfAParticularProductInTheWarehouse();
         Reports();
         break;
-//      case 6:
-//        TheNumberOfArrivalsOfASpecificProductInASpecificHistoricalPeriod();
-//        Reports();
-//        break;
+     case 6:
+       TheNumberOfArrivalsOfASpecificProductInASpecificHistoricalPeriod();
+       Reports();
+       break;
       case 7:
         break;
       default:

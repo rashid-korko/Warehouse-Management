@@ -1,13 +1,13 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "structs.h"
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include"structs.h"
 
 
 extern struct AccountData user;
 extern account_list *head_account;
 
-extern struct ImportAndExportProductFromWarehouse tarnsaction_product;
+extern struct ImportAndExportProductFromWarehouse transaction;
 extern ImportAndExportProductList *head_transaction_product;
 
 extern struct ProductData product;
@@ -37,12 +37,11 @@ void QuantityOfEachProductInTheWarehouse()
 
 void TheListOfProductsOfWhichWeHaveMoreThanACertainAmount()
 {
+    ProductList *current = head_product;
     int num;
     int count = 0;
     printf("Please enter a number in order to print products whose quantity is more than this number : ");
-    scanf("%d" , num);
-    fflush(stdin);
-    ProductList *current = head_product;
+    scanf("%d" , &num);
     while (current != NULL)
     {
         if (current->product.count >= num)
@@ -65,12 +64,11 @@ void TheListOfProductsOfWhichWeHaveMoreThanACertainAmount()
 
 void TheListOfProductsOfWhichWeHaveLessThanACertainAmount()
 {
+    ProductList *current = head_product;
     int num;
     int count = 0;
     printf("Please enter a number in order to print products whose quantity is less than this number : ");
-    scanf("%d" , num);
-    fflush(stdin);
-    ProductList *current = head_product;
+    scanf("%d" , &num);
     while (current != NULL)
     {
         if (current->product.count <= num)
@@ -91,36 +89,67 @@ void TheListOfProductsOfWhichWeHaveLessThanACertainAmount()
 }
 
 
-void RiyalValueOfAllWarehouseProducts(ProductList *head)
+void RiyalValueOfAllWarehouseProducts()
 {
-    ProductList *current = head;
+    ProductList *current = head_product;
     int sum = 0 , price;
     while (current != NULL)
     {
         price = atoi(current->product.ProductPrice);
-        sum = sum + price;
+        sum = sum + (price * current->product.count);
         current = current->next;
     }
+    printf("Riyal value of products = %d" , sum);
     sleep(5);
 }
 
 
 void RiyalValueOfAParticularProductInTheWarehouse()
 {
+    ProductList *current = head_product;
     int price;
     char ProductName[100];
     printf("Please enter a product name  : ");
-    gets(ProductName);
-    ProductList *current = head_product;
+    scanf("%s" , ProductName);
     while (current != NULL)
     {
         if (strcmp(current->product.NameOfTheProduct , ProductName) == 0)
         {
             price = atoi(current->product.ProductPrice);
-            printf("Riyal value of ( %s ) = %d" , current->product.NameOfTheProduct , price);
+            printf("Riyal value of ( %s ) = %d\n" , current->product.NameOfTheProduct , price);
+            price = price * current->product.count;
+            printf("Riyal value of all ( %s ) = %d\n" , current->product.NameOfTheProduct , price);
         }
         current = current->next;
     }
     sleep(5);
 }
 
+
+void TheNumberOfArrivalsOfASpecificProductInASpecificHistoricalPeriod()
+{
+    ProductList *current = head_product;
+    char FirstDate[100] , LastDate[100] , ProductName[100];
+    printf("Please enter a product name  : ");
+    scanf("%s" , ProductName);
+    printf("Please enter a First Date (ex: yyyy/mm/dd) : ");
+    scanf("%s" , FirstDate);
+    printf("Please enter a Last Date (ex: yyyy/mm/dd) : ");
+    scanf("%s" , LastDate);
+    while (current != NULL)
+    {
+        if (strcmp(current->product.NameOfTheProduct , ProductName) == 0)
+        {
+            ImportAndExportProductList *current_1 = head_transaction_product;
+            while (current_1 != NULL)
+            {
+                if (strcmp(current_1->transaction.NumberOfProductsInThisTransaction , ProductName) == 0)
+                {
+                }
+                current_1 = current_1->next;
+            }
+        }
+        current = current->next;
+    }
+    sleep(5);
+}

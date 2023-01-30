@@ -56,7 +56,7 @@
 
 1674928090 e:\c program\first_class\warehousemanagement\structs.h
 
-1674945559 source:e:\c program\first_class\warehousemanagement\importdatafromfile.c
+1674993458 source:e:\c program\first_class\warehousemanagement\importdatafromfile.c
 	<stdio.h>
 	<stdlib.h>
 	"structs.h"
@@ -68,7 +68,7 @@
 	<string.h>
 	"structs.h"
 
-1674938018 source:e:\c program\first_class\warehousemanagement\reports.c
+1674995030 source:e:\c program\first_class\warehousemanagement\reports.c
 	<stdio.h>
 	<stdlib.h>
 	"structs.h"
@@ -78,8 +78,9 @@
 	<stdlib.h>
 	"structs.h"
 
-1674938094 source:e:\c program\first_class\warehousemanagement\reportsfunction.c
+1674998647 source:e:\c program\first_class\warehousemanagement\reportsfunction.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 	"structs.h"
 
