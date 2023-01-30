@@ -31,7 +31,8 @@ void QuantityOfEachProductInTheWarehouse()
         printf("\n\tExplanations : %s" , current->product.Explanations);
         current = current->next;
     }
-    sleep(5);
+    printf("\n\nPlease enter any thing to exit this page.....");
+    getch();
 }
 
 
@@ -58,7 +59,8 @@ void TheListOfProductsOfWhichWeHaveMoreThanACertainAmount()
         }
         current = current->next;
     }
-    sleep(5);
+    printf("\n\nPlease enter any thing to exit this page.....");
+    getch();
 }
 
 
@@ -85,7 +87,8 @@ void TheListOfProductsOfWhichWeHaveLessThanACertainAmount()
         }
         current = current->next;
     }
-    sleep(5);
+    printf("\n\nPlease enter any thing to exit this page.....");
+    getch();
 }
 
 
@@ -100,7 +103,8 @@ void RiyalValueOfAllWarehouseProducts()
         current = current->next;
     }
     printf("Riyal value of products = %d" , sum);
-    sleep(5);
+    printf("\n\nPlease enter any thing to exit this page.....");
+    getch();
 }
 
 
@@ -122,20 +126,35 @@ void RiyalValueOfAParticularProductInTheWarehouse()
         }
         current = current->next;
     }
-    sleep(5);
+    printf("\n\nPlease enter any thing to exit this page.....");
+    getch();
 }
 
 
 void TheNumberOfArrivalsOfASpecificProductInASpecificHistoricalPeriod()
 {
+    struct Date
+    {
+        int year;
+        int month;
+        int day;
+    };
+    struct Date date[3];
     ProductList *current = head_product;
-    char FirstDate[100] , LastDate[100] , ProductName[100];
+    char FirstDate[100] , LastDate[100] , ProductName[100] , DateTransection[100];
+    int count = 0 , sum = 0;
     printf("Please enter a product name  : ");
     scanf("%s" , ProductName);
     printf("Please enter a First Date (ex: yyyy/mm/dd) : ");
     scanf("%s" , FirstDate);
+    date[0].year = atoi(strtok(FirstDate , "/"));
+    date[0].month = atoi(strtok(NULL , "/"));
+    date[0].day = atoi(strtok(NULL , "/"));
     printf("Please enter a Last Date (ex: yyyy/mm/dd) : ");
     scanf("%s" , LastDate);
+    date[1].year = atoi(strtok(LastDate , "/"));
+    date[1].month = atoi(strtok(NULL , "/"));
+    date[1].day = atoi(strtok(NULL , "/"));
     while (current != NULL)
     {
         if (strcmp(current->product.NameOfTheProduct , ProductName) == 0)
@@ -143,13 +162,155 @@ void TheNumberOfArrivalsOfASpecificProductInASpecificHistoricalPeriod()
             ImportAndExportProductList *current_1 = head_transaction_product;
             while (current_1 != NULL)
             {
-                if (strcmp(current_1->transaction.NumberOfProductsInThisTransaction , ProductName) == 0)
+                if ((current_1->transaction.ProductID == current->product.ID) && (strcmp(current_1->transaction.TransactionType , "Enter") == 0))
                 {
+                    strcpy(DateTransection , current_1->transaction.TransactionDate);
+                    date[2].year = atoi(strtok(DateTransection , "/"));
+                    date[2].month = atoi(strtok(NULL , "/"));
+                    date[2].day = atoi(strtok(NULL , "/"));
+                    if ((date[0].year <= date[2].year) && (date[1].year >= date[2].year))
+                    {
+                        if ((date[0].month <= date[2].month) || (date[1].month >= date[2].month))
+                        {
+                            if ((date[0].day <= date[2].day) || (date[1].day >= date[2].day))
+                            {
+                                count++;
+                                sum += current_1->transaction.NumberOfProductsInThisTransaction;
+                            }
+                        }
+                    }
                 }
                 current_1 = current_1->next;
             }
         }
         current = current->next;
     }
-    sleep(5);
+    printf("\nThe %s was inserted %d times during the time period between %d/%d/%d and %d/%d/%d\n" , ProductName , count , date[0].year , date[0].month , date[0].day , date[1].year , date[2].month , date[1].day);
+    printf("\nThe number of pieces entered during this time period : %d\n" , sum);
+    printf("\n\nPlease enter any thing to exit this page.....");
+    getch();
+}
+
+
+void TheNumberOfReleasesOfASpecificProductInASpecificHistoricalPeriod()
+{
+    struct Date
+    {
+        int year;
+        int month;
+        int day;
+    };
+    struct Date date[3];
+    ProductList *current = head_product;
+    char FirstDate[100] , LastDate[100] , ProductName[100] , DateTransection[100];
+    int count = 0 , sum = 0;
+    printf("Please enter a product name  : ");
+    scanf("%s" , ProductName);
+    printf("Please enter a First Date (ex: yyyy/mm/dd) : ");
+    scanf("%s" , FirstDate);
+    date[0].year = atoi(strtok(FirstDate , "/"));
+    date[0].month = atoi(strtok(NULL , "/"));
+    date[0].day = atoi(strtok(NULL , "/"));
+    printf("Please enter a Last Date (ex: yyyy/mm/dd) : ");
+    scanf("%s" , LastDate);
+    date[1].year = atoi(strtok(LastDate , "/"));
+    date[1].month = atoi(strtok(NULL , "/"));
+    date[1].day = atoi(strtok(NULL , "/"));
+    while (current != NULL)
+    {
+        if (strcmp(current->product.NameOfTheProduct , ProductName) == 0)
+        {
+            ImportAndExportProductList *current_1 = head_transaction_product;
+            while (current_1 != NULL)
+            {
+                if ((current_1->transaction.ProductID == current->product.ID) && (strcmp(current_1->transaction.TransactionType , "Exit") == 0))
+                {
+                    strcpy(DateTransection , current_1->transaction.TransactionDate);
+                    date[2].year = atoi(strtok(DateTransection , "/"));
+                    date[2].month = atoi(strtok(NULL , "/"));
+                    date[2].day = atoi(strtok(NULL , "/"));
+                    if ((date[0].year <= date[2].year) && (date[1].year >= date[2].year))
+                    {
+                        if ((date[0].month <= date[2].month) || (date[1].month >= date[2].month))
+                        {
+                            if ((date[0].day <= date[2].day) || (date[1].day >= date[2].day))
+                            {
+                                count++;
+                                sum += current_1->transaction.NumberOfProductsInThisTransaction;
+                            }
+                        }
+                    }
+                }
+                current_1 = current_1->next;
+            }
+        }
+        current = current->next;
+    }
+    printf("\nThe %s was removed %d times during the time period between %d/%d/%d and %d/%d/%d\n" , ProductName , count , date[0].year , date[0].month , date[0].day , date[1].year , date[2].month , date[1].day);
+    printf("\nThe number of pieces removed during this time period : %d\n" , sum);
+    printf("\n\nPlease enter any thing to exit this page.....");
+    getch();
+}
+
+
+void ReportOfTheArrivalAndDepartureOfASpecificItemInADetailedHistoricalperiod()
+{
+    struct Date
+    {
+        int year;
+        int month;
+        int day;
+    };
+    struct Date date[3];
+    ProductList *current = head_product;
+    char FirstDate[100] , LastDate[100] , ProductName[100] , DateTransection[100];
+    int count = 0;
+    printf("Please enter a product name  : ");
+    scanf("%s" , ProductName);
+    printf("Please enter a First Date (ex: yyyy/mm/dd) : ");
+    scanf("%s" , FirstDate);
+    date[0].year = atoi(strtok(FirstDate , "/"));
+    date[0].month = atoi(strtok(NULL , "/"));
+    date[0].day = atoi(strtok(NULL , "/"));
+    printf("Please enter a Last Date (ex: yyyy/mm/dd) : ");
+    scanf("%s" , LastDate);
+    date[1].year = atoi(strtok(LastDate , "/"));
+    date[1].month = atoi(strtok(NULL , "/"));
+    date[1].day = atoi(strtok(NULL , "/"));
+    while (current != NULL)
+    {
+        if (strcmp(current->product.NameOfTheProduct , ProductName) == 0)
+        {
+            ImportAndExportProductList *current_1 = head_transaction_product;
+            while (current_1 != NULL)
+            {
+                if (current_1->transaction.ProductID == current->product.ID)
+                {
+                    strcpy(DateTransection , current_1->transaction.TransactionDate);
+                    date[2].year = atoi(strtok(DateTransection , "/"));
+                    date[2].month = atoi(strtok(NULL , "/"));
+                    date[2].day = atoi(strtok(NULL , "/"));
+                    if ((date[0].year <= date[2].year) && (date[1].year >= date[2].year))
+                    {
+                        if ((date[0].month <= date[2].month) || (date[1].month >= date[2].month))
+                        {
+                            if ((date[0].day <= date[2].day) || (date[1].day >= date[2].day))
+                            {
+                                count++;
+                                printf("\n%d." , count);
+                                printf("\n\tProduct ID : %d" , current_1->transaction.ProductID);
+                                printf("\n\tNumber Of Products In This Transaction : %d" , current_1->transaction.NumberOfProductsInThisTransaction);
+                                printf("\n\tTransaction Type : %s" , current_1->transaction.TransactionType);
+                                printf("\n\tTransaction Date : %s" , current_1->transaction.TransactionDate);
+                            }
+                        }
+                    }
+                }
+                current_1 = current_1->next;
+            }
+        }
+        current = current->next;
+    }
+    printf("\n\nPlease enter any thing to exit this page.....");
+    getch();
 }

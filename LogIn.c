@@ -12,14 +12,22 @@ extern char auth_user[100];
 int LogIn()
 {
     char UserName[100] , Password[100];
-    int check_login = 0;
+    int check_login = 0 , p = 0;
     system("cls");
     printf("====>Welcome to the login page<====\n\n");
     fflush(stdin);
     printf("Username : ");
     gets(UserName);
     printf("Password : ");
-    gets(Password);
+    do{
+        Password[p]=getch();
+        if(Password[p]!='\r')
+        {
+            printf("*");
+        }
+        p++;
+    }while(Password[p-1]!='\r');
+    Password[p-1]='\0';
     check_login = checkLogin(head_account, UserName, Password);
     return check_login;
 }

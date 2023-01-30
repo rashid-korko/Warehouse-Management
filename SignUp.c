@@ -27,7 +27,7 @@ int CheckUsedUsername(account_list *head , char username[])
 void SignUp()
 {
     struct AccountData user;
-    int i , length , n = 1 , tempint , choice;
+    int i , length , n = 1 , tempint , choice , p = 0;
     char temp , robot_check;
     printf("====>Welcome to the sign up page<====\n\n");
     printf("We need some information, please enter this information....\n\n");
@@ -57,12 +57,29 @@ void SignUp()
         n = CheckUsedUsername(head_account , user.UserName);
     }while (n != 0);
     printf("Password : ");
-    gets(user.Password);
+    do{
+        user.Password[p]=getch();
+        if(user.Password[p]!='\r')
+        {
+            printf("*");
+        }
+        p++;
+    }while(user.Password[p-1]!='\r');
+    user.Password[p-1]='\0';
     do
     {
         n = 1;
-        printf("Confirm Your Password : ");
-        gets(user.ConfirmYourPassword);
+        printf("\nConfirm Your Password : ");
+        p = 0;
+        do{
+            user.ConfirmYourPassword[p]=getch();
+            if(user.ConfirmYourPassword[p]!='\r')
+            {
+                printf("*");
+            }
+            p++;
+        }while(user.ConfirmYourPassword[p-1]!='\r');
+        user.ConfirmYourPassword[p-1]='\0';
         if (strcmp(user.ConfirmYourPassword , user.Password) != 0)
         {
             printf("Those passwords didn't match. Try again.\n");
@@ -72,7 +89,7 @@ void SignUp()
             n = 0;
         }
     }while (n != 0);
-    printf("Name : ");
+    printf("\nName : ");
     gets(user.Name);
     printf("Last Name : ");
     gets(user.LastName);
@@ -80,7 +97,7 @@ void SignUp()
     {
         n = 1;
         printf("National Code (ex:0123456789) : ");
-        gets(user.NationalCode);
+        scanf("%10s" , user.NationalCode);
         length = strlen(user.NationalCode);
         for ( i = 0 ; i < length ; i++ )
         {
@@ -100,11 +117,12 @@ void SignUp()
             user.NationalCode[length] = ".";
         }
     }while (n != 0);
+    fflush(stdin);
     do
     {
         n = 1;
         printf("Phoen Number (ex:09123456789) : ");
-        gets(user.PhoenNumber);
+        scanf("%11s" , user.PhoenNumber);
         length = strlen(user.PhoenNumber);
         for ( i = 0 ; i < length ; i++ )
         {
@@ -124,10 +142,11 @@ void SignUp()
             user.PhoenNumber[length] = ".";
         }
     }while (n != 0);
+    fflush(stdin);
     do
     {
         n = 1;
-        printf("Email (ex:******@****.com) : ");
+        printf("\nEmail (ex:******@****.com) : ");
         gets(user.Email);
         length = strlen(user.Email);
         for ( i = 0 ; i < length ; i++ )
@@ -144,7 +163,7 @@ void SignUp()
         }
         else
         {
-            printf("You do not have to enter a space in the Email, please enter it again : \n");
+            printf("\nYou do not have to enter a space in the Email, please enter it again : \n");
             user.Email[length] = ".";
         }
     }while (n != 0);
@@ -181,4 +200,6 @@ void SignUp()
     sleep(5);
     system("cls");
 }
+
+
 

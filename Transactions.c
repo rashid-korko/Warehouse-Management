@@ -69,11 +69,11 @@ void Transactions()
     switch (choice)
     {
     case 1:
-        transaction.TransactionType == "Enter";
+        strcpy(transaction.TransactionType , "Enter");
         n = 0;
         break;
     case 2:
-        transaction.TransactionType == "Exit";
+        strcpy(transaction.TransactionType , "Exit");
         n = 0;
         break;
     default:

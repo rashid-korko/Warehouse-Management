@@ -58,9 +58,6 @@
 		<Unit filename="ReportsFunction.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="SearchProducts.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="SignUp.c">
 			<Option compilerVar="CC" />
 		</Unit>

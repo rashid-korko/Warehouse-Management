@@ -7,7 +7,6 @@ extern account_list *head_account;
 
 
 extern ImportAndExportProductList *head_transaction_product;
-extern struct ImportAndExportProductFromWarehouse tarnsaction_product;
 extern struct ImportAndExportProductFromWarehouse transaction;
 
 extern struct ProductData product;
@@ -131,19 +130,19 @@ void ImportTransactionProductDataFromFile()
   size_t checked_end_of_file;
   FILE *file;
   file = fopen("EntryAndExityProducts.txt" , "r");
-  checked_end_of_file = fread(&tarnsaction_product , sizeof(struct ImportAndExportProductFromWarehouse) , 1 , file);
+  checked_end_of_file = fread(&transaction , sizeof(struct ImportAndExportProductFromWarehouse) , 1 , file);
   if (checked_end_of_file)
   {
        head_transaction_product = (ImportAndExportProductList *) malloc(sizeof(ImportAndExportProductList));
-       head_transaction_product->transaction = tarnsaction_product;
+       head_transaction_product->transaction = transaction;
        head_transaction_product->next = NULL;
   }
   while (checked_end_of_file)
   {
-      checked_end_of_file = fread(&product , sizeof(struct ImportAndExportProductFromWarehouse) , 1 , file);
+      checked_end_of_file = fread(&transaction , sizeof(struct ImportAndExportProductFromWarehouse) , 1 , file);
       if(checked_end_of_file)
       {
-          PushTransactionProductFromFile(head_transaction_product , tarnsaction_product);
+          PushTransactionProductFromFile(head_transaction_product , transaction);
       }
   }
 }
