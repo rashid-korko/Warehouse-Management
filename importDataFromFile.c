@@ -179,14 +179,38 @@ void WriteTransactionProductsInFile(ImportAndExportProductList *head)
     fclose(file);
 }
 
-// // function for clean RAM
+// function for clean RAM
 
-// void CleanRAM()
-// {
+void CleanARAM(account_list *head)
+{
+    account_list *temp;
+   while (head != NULL)
+    {
+       temp = head;
+       head = head->next;
+       free(temp);
+    }
+}
 
-//     while(current != NULL)
-//     {
-//         free(curent);
-//         curent = curent->next;
-//     }
-// }
+
+void CleanPRAM(ProductList *head)
+{
+    ProductList *temp;
+   while (head != NULL)
+    {
+       temp = head;
+       head = head->next;
+       free(temp);
+    }
+}
+
+void CleanTRAM(ImportAndExportProductList *head)
+{
+    ImportAndExportProductList *temp;
+   while (head != NULL)
+    {
+       temp = head;
+       head = head->next;
+       free(temp);
+    }
+}

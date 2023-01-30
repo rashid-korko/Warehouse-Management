@@ -29,6 +29,7 @@ void LoginPage()
         break;
     case 3:
         WriteAccountsInFile(head_account);
+        CleanARAM(head_account);
         exit(0);
         break;
     }

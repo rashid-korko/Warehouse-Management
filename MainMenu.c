@@ -12,6 +12,7 @@ void MainMenu()
 {
     int choice;
     system("cls");
+    system("color 7");
     printf("====>Welcome to Warehouse Management Main menu<====\n\n\t");
     printf("1- New product registration\n\t");
     printf("2- Transactions\n\t");
@@ -41,12 +42,21 @@ void MainMenu()
         MainMenu();
         break;
       case 5:
+        WriteAccountsInFile(head_account);
+        WriteProductsInFile(head_product);
+        WriteTransactionProductsInFile(head_transaction_product);
+        CleanARAM(head_account);
+        CleanPRAM(head_product);
+        CleanTRAM(head_transaction_product);
         LogOut();
         break;
       case 6:
         WriteAccountsInFile(head_account);
         WriteProductsInFile(head_product);
         WriteTransactionProductsInFile(head_transaction_product);
+        CleanARAM(head_account);
+        CleanPRAM(head_product);
+        CleanTRAM(head_transaction_product);
         exit(0);
         break;
       default:

@@ -9,12 +9,12 @@ extern ProductList *head_product;
 extern struct ProductData product;
 
 
-void ProductCount(int number , int choice , int ID)
+void ProductCount(struct ImportAndExportProductFromWarehouse transaction , int choice)
 {
     ProductList *current = head_product;
     while (current != NULL)
     {
-        if (current->product.ID == ID )
+        if (current->product.ID == transaction.ProductID )
         {
             break;
         }
@@ -22,11 +22,22 @@ void ProductCount(int number , int choice , int ID)
     }
     if (choice == 1)
     {
-        current->product.count = current->product.count + number;
+        current->product.count = current->product.count + transaction.NumberOfProductsInThisTransaction;
+        PushTransactionProductFromFile(head_transaction_product, transaction);
     }
     else
     {
-        current->product.count = current->product.count - number;
+        if (current->product.count - transaction.NumberOfProductsInThisTransaction >= 0)
+        {
+            current->product.count = current->product.count - transaction.NumberOfProductsInThisTransaction;
+            PushTransactionProductFromFile(head_transaction_product, transaction);
+        }
+        else
+        {
+            system("color 4");
+            printf("\nyour transection is not correct please try agein\n");
+            sleep(5);
+        }
     }
 }
 
@@ -84,9 +95,9 @@ void Transactions()
     }while (n != 0);
     printf("Number Of Products In This Transaction : ");
     scanf("%d" , &transaction.NumberOfProductsInThisTransaction);
-    ProductCount(transaction.NumberOfProductsInThisTransaction , choice , transaction.ProductID);
-    printf("Transaction Date : ");
+    printf("Transaction Date (ex:yyyy/mm/dd) : ");
     scanf("%s" , transaction.TransactionDate);
     strcpy(transaction.UserName , auth_user);
-    PushTransactionProductFromFile(head_transaction_product, transaction);
+    ProductCount(transaction , choice);
+
 }

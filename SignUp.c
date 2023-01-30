@@ -196,9 +196,8 @@ void SignUp()
         if (robot_check != 'y')
             n = 1;
     }while (n != 0);
-    printf("Your data has been saved........\nThank you for this information....\n");
-    sleep(5);
     system("cls");
+    printf("Your data has been saved........\nThank you for this information....\n");
 }
 
 
